@@ -24,12 +24,14 @@ struct APIService {
         case topTitles
         case title(titleId: Int)
         case artwork(artKey: String)
+        case other(urlPath: String)
         
         var path: String {
             switch self {
             case .topTitles: return APIService.basePath + APIService.titlesEndPoint
             case .title(let titleId): return APIService.basePath + "titles/\(titleId)"
             case .artwork(let artKey): return APIService.artworkEndPoint + "\(artKey)_270.jpeg"
+            case .other(let urlPath): return urlPath
             }
         }
         

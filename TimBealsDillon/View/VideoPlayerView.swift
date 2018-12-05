@@ -14,7 +14,6 @@ class VideoPlayerView: UIView {
     
     private var CONTROLS_HEIGHT: CGFloat = 24.0
     private var PAD: CGFloat = 8.0
-
     
     private var player: AVPlayer?
     private var playerLayer: AVPlayerLayer?
@@ -137,6 +136,7 @@ extension VideoPlayerView {
     func addVideo(with path: String) {
         addPlayer(with: path)
         player?.play()
+        player?.pause()
         player?.addObserver(self, forKeyPath: AVPlayer.observableKey.loadedTimeRanges.rawValue, options: .new, context: nil)
         trackVideoProgress()
     }
@@ -152,6 +152,7 @@ extension VideoPlayerView {
         playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         layer.addSublayer(playerLayer)
         playerLayer.frame = layer.bounds
+        bringSubviewToFront(controlsContainerView)
     }
     
     private func trackVideoProgress() {

@@ -104,7 +104,6 @@
 			children = (
 				B04B112E21B723D1008F358D /* HomeViewController.swift */,
 				B04B114F21B75361008F358D /* MovieSelectedViewController.swift */,
-				B044A8DB21B8531F001BE659 /* HomeViewControllerViewModel.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -114,6 +113,7 @@
 			children = (
 				B04B114621B7359C008F358D /* Movie.swift */,
 				B044A8D921B842CE001BE659 /* MovieSelectedViewModel.swift */,
+				B044A8DB21B8531F001BE659 /* HomeViewControllerViewModel.swift */,
 				B044A8DE21B85E57001BE659 /* Keys.swift */,
 			);
 			path = Model;

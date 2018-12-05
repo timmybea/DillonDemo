@@ -53,7 +53,7 @@ extension MovieSelectedViewController {
 extension MovieSelectedViewController {
     
     func setConstraintsForVideoPlayer() {
-        let isPortrait = UIDevice.isPortrait
+        let isPortrait = UIScreen.main.bounds.width < UIScreen.main.bounds.height
         let height: CGFloat = isPortrait ? (view.bounds.width / 4.0) * 3.0 : min(UIScreen.main.bounds.height, UIScreen.main.bounds.width)
         let top: CGFloat = isPortrait ? 8.0 : 0.0
         videoPlayerHeightConstraint.constant = height
@@ -62,7 +62,7 @@ extension MovieSelectedViewController {
     }
     
     func setBackgroundImage() {
-        let isPortrait = UIDevice.isPortrait
+        let isPortrait = UIScreen.main.bounds.width < UIScreen.main.bounds.height
         self.backgroundImageView.backgroundColor = UIColor.black
         backgroundImageView.contentMode = .scaleAspectFill
         self.backgroundImageView.image = isPortrait ? movieSelectedViewModel?.thumbnailImage : nil

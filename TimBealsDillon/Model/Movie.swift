@@ -18,7 +18,7 @@ class Movie: Decodable {
     var genres = [String]()
     var artistNames = [String]()
     let videoURLString = "https://wolverine.raywenderlich.com/content/ios/tutorials/video_streaming/foxVillage.m3u8"
-    
+
     enum MovieKeys: String, CodingKey {
         case title, titleId, artKey
     }
