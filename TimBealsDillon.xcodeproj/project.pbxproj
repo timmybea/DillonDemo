@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B044A8D621B82535001BE659 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044A8D521B82535001BE659 /* VideoPlayerView.swift */; };
-		B044A8D821B82770001BE659 /* Extensions_UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044A8D721B82770001BE659 /* Extensions_UIKit.swift */; };
+		B044A8D821B82770001BE659 /* ExtensionsUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044A8D721B82770001BE659 /* ExtensionsUIKit.swift */; };
 		B044A8DA21B842CE001BE659 /* MovieSelectedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044A8D921B842CE001BE659 /* MovieSelectedViewModel.swift */; };
 		B044A8DC21B8531F001BE659 /* HomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044A8DB21B8531F001BE659 /* HomeViewControllerViewModel.swift */; };
 		B044A8DF21B85E57001BE659 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044A8DE21B85E57001BE659 /* Keys.swift */; };
@@ -27,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		B044A8D521B82535001BE659 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
-		B044A8D721B82770001BE659 /* Extensions_UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions_UIKit.swift; sourceTree = "<group>"; };
+		B044A8D721B82770001BE659 /* ExtensionsUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsUIKit.swift; sourceTree = "<group>"; };
 		B044A8D921B842CE001BE659 /* MovieSelectedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSelectedViewModel.swift; sourceTree = "<group>"; };
 		B044A8DB21B8531F001BE659 /* HomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerViewModel.swift; sourceTree = "<group>"; };
 		B044A8DE21B85E57001BE659 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 				B04B113021B723D1008F358D /* Main.storyboard */,
 				B04B113521B723D3008F358D /* LaunchScreen.storyboard */,
 				B04B113821B723D3008F358D /* Info.plist */,
-				B044A8D721B82770001BE659 /* Extensions_UIKit.swift */,
+				B044A8D721B82770001BE659 /* ExtensionsUIKit.swift */,
 			);
 			path = TimBealsDillon;
 			sourceTree = "<group>";
@@ -226,7 +226,7 @@
 				B044A8DF21B85E57001BE659 /* Keys.swift in Sources */,
 				B04B115021B75361008F358D /* MovieSelectedViewController.swift in Sources */,
 				B04B114721B7359C008F358D /* Movie.swift in Sources */,
-				B044A8D821B82770001BE659 /* Extensions_UIKit.swift in Sources */,
+				B044A8D821B82770001BE659 /* ExtensionsUIKit.swift in Sources */,
 				B04B114521B72B48008F358D /* MovieCollectionViewCell.swift in Sources */,
 				B044A8DA21B842CE001BE659 /* MovieSelectedViewModel.swift in Sources */,
 			);
@@ -377,6 +377,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2733C6P24Y;
 				INFOPLIST_FILE = TimBealsDillon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -395,6 +396,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2733C6P24Y;
 				INFOPLIST_FILE = TimBealsDillon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

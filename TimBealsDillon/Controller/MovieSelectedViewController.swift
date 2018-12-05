@@ -21,10 +21,15 @@ class MovieSelectedViewController: UIViewController {
 
     @IBAction func cancelButtonTouched(_ sender: UIButton) {
         videoPlayerView.pauseVideo()
-        UIView.animate(withDuration: 0.2, animations: {
-            sender.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.videoPlayerView.alpha = 0.0
+            self.movieInfoTextView.alpha = 0.0
         }, completion: { _ in
-            self.navigationController?.popViewController(animated: true)
+            UIView.animate(withDuration: 0.2, animations: {
+                sender.alpha = 0
+            }, completion: { _ in
+                self.navigationController?.popViewController(animated: true)
+            })
         })
     }
 }
@@ -34,7 +39,9 @@ extension MovieSelectedViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.black
+        
+        self.videoPlayerView.alpha = 0.0
+        self.movieInfoTextView.alpha = 0.0
     }
     
     override func viewWillLayoutSubviews() {
@@ -46,6 +53,11 @@ extension MovieSelectedViewController {
     override func viewWillAppear(_ animated: Bool) {
         guard let path = movieSelectedViewModel?.movieURLString else { return }
         videoPlayerView.addVideo(with: path)
+        
+        UIView.animate(withDuration: 0.6, animations: {
+            self.videoPlayerView.alpha = 1.0
+            self.movieInfoTextView.alpha = 1.0
+        })
     }
 }
 
