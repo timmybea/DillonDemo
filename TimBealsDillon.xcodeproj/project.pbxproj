@@ -15,7 +15,6 @@
 		B04B114521B72B48008F358D /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B114421B72B48008F358D /* MovieCollectionViewCell.swift */; };
 		B04B114721B7359C008F358D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B114621B7359C008F358D /* Movie.swift */; };
 		B04B114921B73802008F358D /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B114821B73802008F358D /* APIService.swift */; };
-		B04B114B21B744E3008F358D /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B114A21B744E3008F358D /* MovieViewModel.swift */; };
 		B04B114E21B74700008F358D /* CachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B114D21B74700008F358D /* CachedImageView.swift */; };
 		B04B115021B75361008F358D /* MovieSelectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B114F21B75361008F358D /* MovieSelectedViewController.swift */; };
 		B04B115221B7554B008F358D /* ScaleTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B115121B7554B008F358D /* ScaleTransitioningDelegate.swift */; };
@@ -32,7 +31,6 @@
 		B04B114421B72B48008F358D /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		B04B114621B7359C008F358D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		B04B114821B73802008F358D /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		B04B114A21B744E3008F358D /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		B04B114D21B74700008F358D /* CachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageView.swift; sourceTree = "<group>"; };
 		B04B114F21B75361008F358D /* MovieSelectedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSelectedViewController.swift; sourceTree = "<group>"; };
 		B04B115121B7554B008F358D /* ScaleTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleTransitioningDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				B04B114621B7359C008F358D /* Movie.swift */,
-				B04B114A21B744E3008F358D /* MovieViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,7 +201,6 @@
 				B04B115021B75361008F358D /* MovieSelectedViewController.swift in Sources */,
 				B04B114721B7359C008F358D /* Movie.swift in Sources */,
 				B04B114521B72B48008F358D /* MovieCollectionViewCell.swift in Sources */,
-				B04B114B21B744E3008F358D /* MovieViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

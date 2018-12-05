@@ -39,6 +39,9 @@ class HomeViewController: UIViewController {
                     print(error.localizedDescription)
                 }
             }
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
 
         setupNavigationBar()
