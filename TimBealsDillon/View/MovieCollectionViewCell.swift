@@ -8,20 +8,29 @@
 
 import UIKit
 
+//MARK: MovieCollectionViewCell Properties
 class MovieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var cachedImageView: CachedImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
     static let reuseId = "MovieCollectionViewCell"
+}
+
+//MARK: MovieCollectionViewCell Public Methods
+extension MovieCollectionViewCell {
     
-    func configure(with movie: Movie) {
+    func configure(with homeViewMovieViewModel: HomeViewControllerViewModel) {
         cachedImageView.contentMode = .scaleAspectFill
-        layer.cornerRadius = 10.0
-        titleLabel.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        cachedImageView.loadImage(from: homeViewMovieViewModel.artKey, with: nil)
         
-        titleLabel.text = movie.title
-        cachedImageView.loadImage(from: movie.artKey, with: nil)
+        titleLabel.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        titleLabel.text = homeViewMovieViewModel.title
+        
+        layer.cornerRadius = 10.0
+        
         self.layoutIfNeeded()
     }
 }
+
+

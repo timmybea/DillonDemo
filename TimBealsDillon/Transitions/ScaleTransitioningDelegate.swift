@@ -8,10 +8,12 @@
 
 import UIKit
 
+//MARK: Scaling Protocol
 protocol Scaling {
     func scalingImageView(transition: ScaleTransitioningDelegate) -> UIImageView?
 }
 
+//MARK: Transition State
 enum TransitionState {
     case begin
     case end

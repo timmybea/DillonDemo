@@ -100,11 +100,26 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xUN-3g-iEB">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3B-Rj-1uR">
-                                <rect key="frame" x="34" y="54" width="38" height="38"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GWH-np-rjb">
+                                <rect key="frame" x="16" y="323" width="343" height="315"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wj-lu-4Dp" customClass="VideoPlayerView" customModule="TimBealsDillon" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="34" width="375" height="281"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="38" id="1k5-GD-PQf"/>
-                                    <constraint firstAttribute="height" constant="38" id="2wv-3y-5Zw"/>
+                                    <constraint firstAttribute="height" constant="281" id="tbr-1s-UpM"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3B-Rj-1uR">
+                                <rect key="frame" x="341" y="40" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="bBM-ll-bUT"/>
+                                    <constraint firstAttribute="width" constant="26" id="tau-1q-dny"/>
                                 </constraints>
                                 <state key="normal" image="closeButton"/>
                                 <connections>
@@ -114,18 +129,29 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="GWH-np-rjb" firstAttribute="top" secondItem="2wj-lu-4Dp" secondAttribute="bottom" constant="8" id="1fX-DZ-Avr"/>
+                            <constraint firstItem="2wj-lu-4Dp" firstAttribute="trailing" secondItem="CNU-p6-URA" secondAttribute="trailing" id="3I8-Hi-f3R"/>
                             <constraint firstItem="xUN-3g-iEB" firstAttribute="top" secondItem="c1e-k1-V1g" secondAttribute="top" id="40S-KT-LE7"/>
-                            <constraint firstItem="e3B-Rj-1uR" firstAttribute="top" secondItem="CNU-p6-URA" secondAttribute="top" constant="34" id="Cb9-hM-bmS"/>
+                            <constraint firstItem="CNU-p6-URA" firstAttribute="trailing" secondItem="GWH-np-rjb" secondAttribute="trailing" constant="16" id="880-eN-yvs"/>
+                            <constraint firstItem="CNU-p6-URA" firstAttribute="trailing" secondItem="e3B-Rj-1uR" secondAttribute="trailing" constant="8" id="C9e-9r-Xcd"/>
                             <constraint firstItem="xUN-3g-iEB" firstAttribute="leading" secondItem="CNU-p6-URA" secondAttribute="leading" id="DEg-OG-Tt5"/>
+                            <constraint firstItem="CNU-p6-URA" firstAttribute="bottom" secondItem="GWH-np-rjb" secondAttribute="bottom" constant="29" id="L3r-Bj-ShO"/>
                             <constraint firstItem="xUN-3g-iEB" firstAttribute="trailing" secondItem="CNU-p6-URA" secondAttribute="trailing" id="Tlk-Ev-t1v"/>
+                            <constraint firstItem="GWH-np-rjb" firstAttribute="leading" secondItem="CNU-p6-URA" secondAttribute="leading" constant="16" id="bcL-8w-dek"/>
+                            <constraint firstItem="e3B-Rj-1uR" firstAttribute="top" secondItem="CNU-p6-URA" secondAttribute="top" constant="20" id="czb-qT-cul"/>
                             <constraint firstItem="xUN-3g-iEB" firstAttribute="bottom" secondItem="CNU-p6-URA" secondAttribute="bottom" id="nAd-AT-C82"/>
-                            <constraint firstItem="e3B-Rj-1uR" firstAttribute="leading" secondItem="CNU-p6-URA" secondAttribute="leading" constant="34" id="ydK-bZ-q79"/>
+                            <constraint firstItem="2wj-lu-4Dp" firstAttribute="leading" secondItem="CNU-p6-URA" secondAttribute="leading" id="vKJ-Om-twk"/>
+                            <constraint firstItem="2wj-lu-4Dp" firstAttribute="top" secondItem="CNU-p6-URA" secondAttribute="top" constant="14" id="w7h-Ad-4t2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CNU-p6-URA"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="xUN-3g-iEB" id="rfv-6Y-ZQF"/>
+                        <outlet property="movieInfoTextView" destination="GWH-np-rjb" id="l9h-gE-fpn"/>
+                        <outlet property="videoPlayerHeightConstraint" destination="tbr-1s-UpM" id="7Dn-li-ZYF"/>
+                        <outlet property="videoPlayerTopConstraint" destination="w7h-Ad-4t2" id="F2S-Kr-csh"/>
+                        <outlet property="videoPlayerView" destination="2wj-lu-4Dp" id="tX8-Ki-aSa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXi-qb-KvF" userLabel="First Responder" sceneMemberID="firstResponder"/>

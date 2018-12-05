@@ -16,6 +16,7 @@ class Movie: Decodable {
     var synopsis: String?
     var genres = [String]()
     var artistNames = [String]()
+    let videoURLString = "https://wolverine.raywenderlich.com/content/ios/tutorials/video_streaming/foxVillage.m3u8"
     
     enum MovieKeys: String, CodingKey {
         case title, titleId, artKey
@@ -37,7 +38,6 @@ class Movie: Decodable {
         
         UIImage.cacheImage(from: artKey) { (_) in }
         getTitleInfo(for: titleId)
-        
     }
     
     private func getTitleInfo(for id: Int) {
@@ -45,8 +45,8 @@ class Movie: Decodable {
         APIService.fetchData(with: .title(titleId: id)) { (data, error) in
 
             guard error == nil else { return }
-
-            guard let data = data, let jsonDicts = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject] else { return }
+            guard let data = data else { return }
+            guard let jsonDicts = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject] else { return }
             guard let unwrappedJson = jsonDicts else { return }
             
             self.synopsis = unwrappedJson["synopsis"] as? String
@@ -72,7 +72,7 @@ class Movie: Decodable {
 extension Movie : CustomStringConvertible {
     
     var description: String {
-        return "Movie: \(title), genre: \(genres), synopsis: \(synopsis), artists: \(artistNames)"
+        return "Movie: \(title), genre: \(genres), synopsis: \(String(describing: synopsis)), artists: \(artistNames)"
     }
     
 }

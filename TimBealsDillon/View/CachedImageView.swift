@@ -8,84 +8,71 @@
 
 import UIKit
 
+//MARK: UIImage Cache Extension
 extension UIImage {
     
-    static let imageCache = NSCache<AnyObject, AnyObject>()
+    static let imageCache = NSCache<AnyObject, UIImage>()
     
     static func cacheImage(from artKey: String, completion: @escaping (UIImage?) -> ()) {
-        
-        var output: UIImage? = nil
         
         APIService.fetchData(with: .artwork(artKey: artKey)) { (data, error) in
             
             guard error == nil else {
-                print(error!.localizedDescription)
+                completion(nil)
                 return
             }
             
             guard let currData = data else {
+                completion(nil)
                 return
             }
             
             guard let image = UIImage(data: currData) else {
+                completion(nil)
                 return
             }
-            
-            DispatchQueue.main.async {
-                imageCache.setObject(image, forKey: artKey as AnyObject)
-            }
-            
-            output = image
-            
+
+            imageCache.setObject(image, forKey: artKey as AnyObject)
+            completion(image)
         }
-        completion(output)
     }
 }
 
+//MARK: CachedImageView
 class CachedImageView: UIImageView {
     
     private var imageEndPoint: String?
     
     private let activityIndicatorView: UIActivityIndicatorView = {
-        let aiv = UIActivityIndicatorView(style: .whiteLarge)
-        aiv.translatesAutoresizingMaskIntoConstraints = false
-        return aiv
+        let indicator = UIActivityIndicatorView(style: .whiteLarge)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        return indicator
     }()
-    
-    override func layoutSubviews() {
-        self.layer.masksToBounds = true
-        
-        activityIndicatorView.removeFromSuperview()
-        
-        addSubview(activityIndicatorView)
-        NSLayoutConstraint.activate([
-            activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            activityIndicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            ])
-        
-        if self.image == nil {
-            activityIndicatorView.startAnimating()
-        }
-    }
-    
+ 
+}
+
+//MARK: CachedImageView Public Methods
+extension CachedImageView {
+ 
     func loadImage(from endPoint: String, with renderingMode: UIImage.RenderingMode?) {
         
-        self.imageEndPoint = endPoint
-        
         func setImage(_ image: UIImage) {
-            var img = image
+            var image = image
             
             if let rend = renderingMode {
-                img = img.withRenderingMode(rend)
+                image = image.withRenderingMode(rend)
             }
             
             DispatchQueue.main.async {
-                self.image = img
+                self.image = image
                 self.activityIndicatorView.stopAnimating()
             }
         }
         
-        if let imageFromCache = UIImage.imageCache.object(forKey: endPoint as AnyObject) as? UIImage {
+        self.imageEndPoint = endPoint
+        
+        if let imageFromCache = UIImage.imageCache.object(forKey: endPoint as AnyObject) {
             setImage(imageFromCache)
             return
         }
@@ -98,4 +85,18 @@ class CachedImageView: UIImageView {
         }
     }
     
+    override func layoutSubviews() {
+        self.layer.masksToBounds = true
+        
+        activityIndicatorView.removeFromSuperview()
+        
+        addSubview(activityIndicatorView)
+        
+        NSLayoutConstraint.activate([activityIndicatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                                     activityIndicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor)])
+        
+        if self.image == nil {
+            activityIndicatorView.startAnimating()
+        }
+    }
 }
