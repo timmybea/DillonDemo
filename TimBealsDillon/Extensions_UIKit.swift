@@ -18,22 +18,17 @@ extension String {
         let minutesText = String(format: "%02d", Int(totalSeconds) / 60)
         return  "\(minutesText):\(secondsText)"
     }
-    
 }
 
 //MARK: UIImage Extension
 extension UIImage {
     
     enum ProjectAssets {
-        case pauseButton
-        case playButton
         case sliderThumb
         case closeButton
         
         var imageName: String {
             switch self {
-            case .pauseButton: return "pauseButton"
-            case .playButton: return "playButton"
             case .sliderThumb: return "sliderThumb"
             case .closeButton: return "closeButton"
             }
@@ -42,9 +37,7 @@ extension UIImage {
         var image: UIImage {
             return UIImage(named: self.imageName) ?? UIImage()
         }
-        
     }
-    
 }
 
 
@@ -65,7 +58,6 @@ extension UIDevice {
     static var isPortrait: Bool {
         return UIDevice.current.orientation.isPortrait
     }
-    
 }
 
 //MARK: AVPlayer Extension
@@ -74,7 +66,6 @@ extension AVPlayer {
     enum observableKey: String {
         case loadedTimeRanges = "currentItem.loadedTimeRanges"
     }
-    
 }
 
 //MARK: UIFont Extensions

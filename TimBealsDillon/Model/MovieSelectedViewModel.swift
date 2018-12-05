@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: MovieSelectedViewModel Properties and Initializer
 struct MovieSelectedViewModel {
     
     private let movie: Movie
@@ -21,7 +22,11 @@ struct MovieSelectedViewModel {
         self.movieInfoText = MovieSelectedViewModel.getMovieInfoText(movie)
         self.thumbnailImage = thumbnail
     }
-    
+}
+
+//MARK: MovieSelectedViewModel Static Methods (instance setup)
+extension MovieSelectedViewModel {
+
     private static func getMovieInfoText(_ movie: Movie) -> NSAttributedString {
         let attributedParagraph = AttributedParagraph()
         attributedParagraph.append(text: "\(movie.title)\n\n", font: UIFont.Theme.header.font, alignment: .left)

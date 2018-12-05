@@ -8,22 +8,32 @@
 
 import UIKit
 
+//MARK: MovieSelectedViewController Properties
 class MovieSelectedViewController: UIViewController {
-    
-//    var backgroundImage: UIImage?
     
     var movieSelectedViewModel: MovieSelectedViewModel?
     
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var videoPlayerView: VideoPlayerView!
     @IBOutlet weak var videoPlayerHeightConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var videoPlayerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var movieInfoTextView: UITextView!
+
+    @IBAction func cancelButtonTouched(_ sender: UIButton) {
+        videoPlayerView.pauseVideo()
+        UIView.animate(withDuration: 0.2, animations: {
+            sender.alpha = 0
+        }, completion: { _ in
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
+}
+
+//MARK: Lifecycle Methods
+extension MovieSelectedViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = UIColor.black
     }
     
@@ -37,17 +47,9 @@ class MovieSelectedViewController: UIViewController {
         guard let path = movieSelectedViewModel?.movieURLString else { return }
         videoPlayerView.addVideo(with: path)
     }
-
-    @IBAction func cancelButtonTouched(_ sender: UIButton) {
-        videoPlayerView.pauseVideo()
-        UIView.animate(withDuration: 0.2, animations: {
-            sender.alpha = 0
-        }, completion: { _ in
-            self.navigationController?.popViewController(animated: true)
-        })
-    }
 }
 
+//MARK: MovieSelectedViewController Methods
 extension MovieSelectedViewController {
     
     func setConstraintsForVideoPlayer() {
@@ -66,7 +68,6 @@ extension MovieSelectedViewController {
         self.backgroundImageView.image = isPortrait ? movieSelectedViewModel?.thumbnailImage : nil
     }
     
-    
     func setupMovieInfoTextView() {
         movieInfoTextView.textContainer.lineFragmentPadding = 8.0
         movieInfoTextView.backgroundColor = UIColor.black.withAlphaComponent(0.7)
@@ -75,9 +76,9 @@ extension MovieSelectedViewController {
         movieInfoTextView.attributedText = movieSelectedViewModel?.movieInfoText
         movieInfoTextView.isEditable = false
     }
-    
 }
 
+//MARK: MovieSelectedViewController Scaling Protocol (Transition)
 extension MovieSelectedViewController : Scaling {
     
     func scalingImageView(transition: ScaleTransitioningDelegate) -> UIImageView? {

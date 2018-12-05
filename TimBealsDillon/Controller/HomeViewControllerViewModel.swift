@@ -8,6 +8,7 @@
 
 import Foundation
 
+//MARK: HomeViewControllerViewModel
 struct HomeViewControllerViewModel {
     
     private let movie: Movie

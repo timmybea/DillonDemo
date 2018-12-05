@@ -11,6 +11,7 @@
 		B044A8D821B82770001BE659 /* Extensions_UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044A8D721B82770001BE659 /* Extensions_UIKit.swift */; };
 		B044A8DA21B842CE001BE659 /* MovieSelectedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044A8D921B842CE001BE659 /* MovieSelectedViewModel.swift */; };
 		B044A8DC21B8531F001BE659 /* HomeViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044A8DB21B8531F001BE659 /* HomeViewControllerViewModel.swift */; };
+		B044A8DF21B85E57001BE659 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B044A8DE21B85E57001BE659 /* Keys.swift */; };
 		B04B112D21B723D1008F358D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B112C21B723D1008F358D /* AppDelegate.swift */; };
 		B04B112F21B723D1008F358D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04B112E21B723D1008F358D /* HomeViewController.swift */; };
 		B04B113221B723D1008F358D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B04B113021B723D1008F358D /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		B044A8D721B82770001BE659 /* Extensions_UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions_UIKit.swift; sourceTree = "<group>"; };
 		B044A8D921B842CE001BE659 /* MovieSelectedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSelectedViewModel.swift; sourceTree = "<group>"; };
 		B044A8DB21B8531F001BE659 /* HomeViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerViewModel.swift; sourceTree = "<group>"; };
+		B044A8DE21B85E57001BE659 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		B04B112921B723D1008F358D /* TimBealsDillon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimBealsDillon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04B112C21B723D1008F358D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B04B112E21B723D1008F358D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				B04B114621B7359C008F358D /* Movie.swift */,
 				B044A8D921B842CE001BE659 /* MovieSelectedViewModel.swift */,
+				B044A8DE21B85E57001BE659 /* Keys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				B044A8DC21B8531F001BE659 /* HomeViewControllerViewModel.swift in Sources */,
 				B04B115221B7554B008F358D /* ScaleTransitioningDelegate.swift in Sources */,
 				B044A8D621B82535001BE659 /* VideoPlayerView.swift in Sources */,
+				B044A8DF21B85E57001BE659 /* Keys.swift in Sources */,
 				B04B115021B75361008F358D /* MovieSelectedViewController.swift in Sources */,
 				B04B114721B7359C008F358D /* Movie.swift in Sources */,
 				B044A8D821B82770001BE659 /* Extensions_UIKit.swift in Sources */,

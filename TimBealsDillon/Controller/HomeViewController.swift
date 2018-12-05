@@ -8,6 +8,7 @@
 
 import UIKit
 
+//MARK: HomeViewController Properties
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -21,41 +22,29 @@ class HomeViewController: UIViewController {
             }
         }
     }
+}
+
+//MARK: HomeViewController Methods
+extension HomeViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        APIService.fetchData(with: .topTitles) { (data, error) in
-        
-            guard error == nil else {
-                return
-            }
-
-            if let unwrappedData = data {
-                do {
-                    let movies = try JSONDecoder().decode([Movie].self, from: unwrappedData)
-                    self.movieData = movies.map { HomeViewControllerViewModel(movie: $0) }
-                } catch {
-                    return
-                }
-            }
+        Movie.getNewMovies {
+            guard let movies = $0 else { return }
+            self.movieData = movies.map { HomeViewControllerViewModel(movie: $0) }
         }
+        
         setupNavigationBar()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "MovieSelected" { //USE CONSTANTS!
+        if segue.identifier == SegueIdentifiers.movieSelected.string {
             let sender = sender as! [String: Any]
-            guard let movie = sender["movie"] as? Movie else { return }
-            guard let image = sender["image"] as? UIImage else { return }
+            guard let movie = sender[SenderKeys.movie.rawValue] as? Movie else { return }
+            guard let image = sender[SenderKeys.image.rawValue] as? UIImage else { return }
             
-            guard let selectedMovieVC = segue.destination as? MovieSelectedViewController else {
-//                print("no vc!")
-                return
-            }
-//            selectedMovieVC.backgroundImage = image
-//            selectedMovieVC.movieSelectedViewModel = MovieSelectedViewModel(movie: movie)
+            guard let selectedMovieVC = segue.destination as? MovieSelectedViewController else { return }
             selectedMovieVC.movieSelectedViewModel = MovieSelectedViewModel(movie: movie, thumbnail: image)
         }
     }
@@ -64,17 +53,17 @@ class HomeViewController: UIViewController {
         self.navigationController?.navigationBar.barStyle = .black
         self.title = "New Movies"
     }
-
+    
 }
 
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//MARK: HomeViewController CollectionView Methods
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource  {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movieData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.reuseId, for: indexPath) as? MovieCollectionViewCell else { return MovieCollectionViewCell() }
         
         cell.configure(with: movieData[indexPath.item])
@@ -83,19 +72,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
-        
         let movie = movieData[indexPath.item].returnMovie()
         
         guard let imageFromCache = UIImage.imageCache.object(forKey: movie.artKey as AnyObject) else { return }
-        
-        let sender: [String: Any] = ["movie": movie, "image": imageFromCache]
+        let sender: [String: Any] = [SenderKeys.movie.rawValue: movie, SenderKeys.image.rawValue: imageFromCache]
 
-        self.performSegue(withIdentifier: "MovieSelected", sender: sender)
+        self.performSegue(withIdentifier: SegueIdentifiers.movieSelected.string, sender: sender)
     }
 }
 
-//MARK: Transitioning
-
+//MARK: HomeViewController Scaling Protocol (Transition)
 extension HomeViewController : Scaling {
     
     func scalingImageView(transition: ScaleTransitioningDelegate) -> UIImageView? {

@@ -19,11 +19,13 @@ enum TransitionState {
     case end
 }
 
+//MARK: ScaleTransitioningDelegate Properties
 class ScaleTransitioningDelegate: NSObject {
     let animationDuration = 0.5
     var navigationControllerOperation: UINavigationController.Operation = .none
 }
 
+//MARK: ScaleTransitioningDelegate UIViewControllerAnimatedTransitioning Methods
 extension ScaleTransitioningDelegate : UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -83,7 +85,6 @@ extension ScaleTransitioningDelegate : UIViewControllerAnimatedTransitioning {
     }
     
     func prepareViews(for state: TransitionState, containerView: UIView, backgroundViewController: UIViewController, backgroundImageView: UIImageView, foregroundImageView: UIImageView, snapshotImageView: UIImageView) {
-        
         switch state {
         case .begin:
             backgroundViewController.view.transform = .identity
@@ -95,10 +96,10 @@ extension ScaleTransitioningDelegate : UIViewControllerAnimatedTransitioning {
             snapshotImageView.frame = containerView.convert(foregroundImageView.frame, from: foregroundImageView.superview)
             return
         }
-        
     }
 }
 
+//MARK: ScaleTransitioningDelegate UINavigationControllerDelegate
 extension ScaleTransitioningDelegate : UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
