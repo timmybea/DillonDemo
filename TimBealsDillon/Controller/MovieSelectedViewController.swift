@@ -26,8 +26,13 @@ class MovieSelectedViewController: UIViewController {
         backgroundImageView.image = backgroundImage
     }
 
-    @IBAction func cancelButtonTouched(_ sender: Any) {
-        
+    @IBAction func cancelButtonTouched(_ sender: UIButton) {
+            UIView.animate(withDuration: 0.2, animations: {
+//                self.initialDimView.alpha = 0
+                sender.alpha = 0
+            }, completion: { _ in
+                self.navigationController?.popViewController(animated: true)
+            })
     }
 }
 

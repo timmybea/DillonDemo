@@ -31,9 +31,9 @@ extension UIImage {
                 return
             }
             
-//            DispatchQueue.main.async {
+            DispatchQueue.main.async {
                 imageCache.setObject(image, forKey: artKey as AnyObject)
-//            }
+            }
             
             output = image
             

@@ -99,9 +99,7 @@ extension HomeViewController : Scaling {
     func scalingImageView(transition: ScaleTransitioningDelegate) -> UIImageView? {
         if let indexPath = selectedIndexPath {
             guard let cell = collectionView.cellForItem(at: indexPath) as? MovieCollectionViewCell else { return nil }
-            let imageView = UIImageView(image: cell.cachedImageView.image)
-            imageView.frame = cell.frame
-            return imageView
+            return cell.cachedImageView as? UIImageView
         }
         return nil
     }
